@@ -14,6 +14,12 @@ public class Person implements Comparable<Person> {
     /// Compares last names
     @Override
     public int compareTo(Person otherPerson) {
+
+        /// Failsafe checks if last names are the same, if they are compares first names instead
+        if (this.lastName.equalsIgnoreCase(otherPerson.lastName)) {
+            return this.firstName.compareTo(otherPerson.firstName);
+        }
+
         return this.lastName.compareTo(otherPerson.lastName);
     }
 
